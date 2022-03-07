@@ -54,6 +54,28 @@ $array = [2 => 1, 'one' => 2, 3, 4];
 // const y = 8;
 // const z = 9;
 // echo y;
+
+// $x = "I am learning";
+// $y = "php";
+
+// echo "{$x} {$y}";
+
+// $array = [0, 1, 2, 3, 4];
+
+// foreach ($array as $ar) {
+//     if ($ar % 2 != 0) {
+//     } else {
+//         echo $ar . '<br>';
+//     }
+// }
+
+// for ($i = 0; $i <= 10; $i++) {
+//     if ($i % 2 != 0) {
+//     } else {
+//         echo $i . '<br>';
+//     }
+// }
+
 ?>
 
 <!-- prob -->
