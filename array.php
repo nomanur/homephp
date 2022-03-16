@@ -27,10 +27,16 @@
 
 // $diff = array_diff($arr3, $arr4);
 
-$array = [1, 2, 3];
+// $array = [1, 2, 3];
 
 // $splice = array_splice($array, -3, 1);
 
 // shuffle($array);
 // end($array);
-in_array(55, $array);
+// in_array(55, $array);
+
+
+// $array = [1, 2, 3];
+
+
+// echo end($array);
