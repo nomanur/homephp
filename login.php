@@ -31,7 +31,6 @@ info($name, $age);
 //create four input, input type number, add first two, minus third, multiply fourth
 //create three input, one type text another two number, concat first one and add the second and third
 
-
 ?>
 
 <!DOCTYPE html>

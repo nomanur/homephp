@@ -38,5 +38,25 @@
 
 // $array = [1, 2, 3];
 
-
 // echo end($array);
+
+// $img = "picture.jpg";
+
+// // $river = "jamuna. rupsha. padma. test";
+
+// // $sta = explode('.', $river);
+
+// $picaray = explode('.', $img);
+
+// var_dump($picaray);
+
+
+$array = [1, 2, 3, 4];
+
+// var_dump($array);
+
+$map = array_map(function ($arr) {
+    return  2 * $arr;
+}, $array);
+
+var_dump($map);
