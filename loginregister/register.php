@@ -46,6 +46,10 @@ if (isset($_POST["fname"]) && $_POST['fname'] == '') {
 }
 
 
+//create a form, input type file, echo file size, file name, file extension
+// compare size, if size is greater than 3mb then echo file not supported
+
+
 ?>
 
 
