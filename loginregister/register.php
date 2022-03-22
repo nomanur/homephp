@@ -20,7 +20,19 @@ error_reporting(false);
 //     echo "no";
 // }
 
+
+$connection = mysqli_connect("localhost", "root", "123", "query");
+
+if (!$connection) {
+    echo "not connected successfully";
+}
+
 $error;
+
+$fname = $_POST['fname'];
+$lname = $_POST['lname'];
+$email = $_POST['email'];
+$password = $_POST['password'];
 
 if (isset($_POST["fname"]) && $_POST['fname'] == '') {
     $error = "first name cannot be empty";
@@ -30,6 +42,8 @@ if (isset($_POST["fname"]) && $_POST['fname'] == '') {
     $error = "email cannot be empty";
 } elseif (isset($_POST["email"]) && !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
     $error = "email must be valid";
+} elseif (isset($_POST["password"]) && $_POST['password'] == '') {
+    $error = "password can not be empty";
 } elseif ($_FILES['image']['name'] == "") {
     $error = "You need to upload image";
 } elseif (!isset($_POST['agree'])) {
@@ -41,7 +55,15 @@ if (isset($_POST["fname"]) && $_POST['fname'] == '') {
     if ($imageExtention != 'png' && $imageExtention != 'jpg' && $imageExtention != 'jpeg') {
         $error = "Your image must be png, jpg or jpeg";
     } else {
-        echo "You are successfully registered!";
+
+        $query = "insert into user(fname, lname, email, password) values('$fname', '$lname', '$email', '$password')";
+
+
+        if (mysqli_query($connection, $query)) {
+            echo "You are successfully registered!";
+        } else {
+            echo "error";
+        }
     }
 }
 
@@ -78,6 +100,8 @@ if (isset($_POST["fname"]) && $_POST['fname'] == '') {
         <input type="text" name="lname"> Last name
         <br>
         <input type="text" name="email"> email
+        <br>
+        <input type="text" name="password"> Password
         <br>
         <input type="file" name="image">
         <br>

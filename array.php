@@ -60,3 +60,13 @@ $map = array_map(function ($arr) {
 }, $array);
 
 var_dump($map);
+
+
+
+$array = ['key' =>
+[
+    'test' => [
+        'second' => 'second step'
+    ]
+
+]];
