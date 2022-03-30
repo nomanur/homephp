@@ -1,24 +1,11 @@
 <?php
-error_reporting(false);
-// $_POST["lname"];
-// $_POST["email"];
-// echo $_POST["agree"];
+// error_reporting(false);
 
-// echo "<pre>";
-// $image = ($_FILES['image']['name']);
+// $img = ($_FILES['image']);
 
-// $image = explode('.', $image);
+// var_dump($img);
 
-// var_dump(end($image));
-
-
-// echo "</pre>";
-
-// if (($_FILES['image']['name']) != "") {
-//     var_dump($_FILES['image']);
-// } else {
-//     echo "no";
-// }
+// var_dump(rand(100, 1000));
 
 
 $connection = mysqli_connect("localhost", "root", "123", "query");
@@ -50,19 +37,25 @@ if (isset($_POST["fname"]) && $_POST['fname'] == '') {
     $error = "You must have to agree with our terms and conditions";
 } else {
     $image = $_FILES['image']['name'];
-    $imageExtention = end(explode('.', $image));
+    //noman_123332.jpg
+    $imagename = $fname . '_' . time() . '_' . rand(100, 1000) . '_' . rand(100, 1000) . '_' . $image;
+    $imageArray = explode('.', $image);
+    $imageExt = end($imageArray);
+    $imgTempName = $_FILES['image']['tmp_name'];
 
-    if ($imageExtention != 'png' && $imageExtention != 'jpg' && $imageExtention != 'jpeg') {
+    if ($imageExt != 'png' && $imageExt != 'jpg' && $imageExt != 'jpeg') {
         $error = "Your image must be png, jpg or jpeg";
     } else {
+        if (move_uploaded_file($imgTempName, 'images/' . $imagename)) {
+            $query = "insert into user(fname, lname, email, image , password) values('$fname', '$lname', '$email', '$imagename', '$password')";
 
-        $query = "insert into user(fname, lname, email, password) values('$fname', '$lname', '$email', '$password')";
-
-
-        if (mysqli_query($connection, $query)) {
-            echo "You are successfully registered!";
+            if (mysqli_query($connection, $query)) {
+                echo "You are successfully registered!";
+            } else {
+                echo "error";
+            }
         } else {
-            echo "error";
+            echo 'Image not uploaded';
         }
     }
 }
@@ -99,7 +92,7 @@ if (isset($_POST["fname"]) && $_POST['fname'] == '') {
         <br>
         <input type="text" name="lname"> Last name
         <br>
-        <input type="text" name="email"> email
+        <input type="email" name="email"> email
         <br>
         <input type="text" name="password"> Password
         <br>

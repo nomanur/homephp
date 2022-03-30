@@ -1,6 +1,8 @@
 <?php
 error_reporting(false);
 
+session_start();
+
 $email = $_POST['email'];
 $password = $_POST['password'];
 
@@ -15,11 +17,18 @@ $query = "select * from user where email='$email' && password='$password' ";
 $query = mysqli_query($connection, $query);
 $result = mysqli_fetch_assoc($query);
 
-if ($result['email'] != null) {
-    echo "You are logged in!";
+if (mysqli_num_rows($query) > 0) {
+    $_SESSION['login'] = true;
+    echo "you are logged in";
 } else {
-    echo "Login first";
+    echo "Please put correct credentials";
 }
+
+// if ($result['email'] != null) {
+//     echo "You are logged in!";
+// } else {
+//     echo "Login first";
+// }
 
 ?>
 
@@ -35,13 +44,29 @@ if ($result['email'] != null) {
 
 <body>
 
-    <form action="" method="POST">
-        <input type="email" name="email">Email
+    <?php
+    if ($_SESSION['login'] == false) { ?>
+        <form action="" method="POST">
+            <input type="email" name="email">Email
+            <br>
+            <input type="password" name="password">Password
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+
+    <?php } else { ?>
         <br>
-        <input type="password" name="password">Password
+        Name: <?php echo $result['fname'] ?>
         <br>
-        <button type="submit">Submit</button>
-    </form>
+
+        <img src="images/<?php echo $result['image'] ?>" alt="">
+
+        <a href="logout.php">Logout</a>
+    <?php } ?>
+
+
+
+
 
 
 </body>

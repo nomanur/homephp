@@ -1,5 +1,15 @@
 <?php
 
+
+// $image = '123.jpg';
+
+// $img =  explode('.', $image);
+
+// var_dump(end($img));
+
+
+
+
 // $array = [1, 2, 3];
 
 // array_push($array, 5, 6, 7);
@@ -51,22 +61,21 @@
 // var_dump($picaray);
 
 
-$array = [1, 2, 3, 4];
+// $array = [1, 2, 3, 4];
 
 // var_dump($array);
 
-$map = array_map(function ($arr) {
-    return  2 * $arr;
-}, $array);
+// $map = array_map(function ($arr) {
+//     return  2 * $arr;
+// }, $array);
 
-var_dump($map);
+// var_dump($map);
 
 
 
-$array = ['key' =>
-[
-    'test' => [
-        'second' => 'second step'
-    ]
-
-]];
+// $array = ['key' =>
+// [
+//     'test' => [
+//         'second' => 'second step',
+//     ]
+// ]];
