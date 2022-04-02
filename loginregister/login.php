@@ -56,18 +56,13 @@ if (mysqli_num_rows($query) > 0) {
 
     <?php } else { ?>
         <br>
-        Name: <?php echo $result['fname'] ?>
+        Name: <?php echo $result['fname']; ?>
         <br>
 
-        <img src="images/<?php echo $result['image'] ?>" alt="">
+        <img src="images/<?php echo $result['image']; ?>" alt="noman">
 
         <a href="logout.php">Logout</a>
     <?php } ?>
-
-
-
-
-
 
 </body>
 
