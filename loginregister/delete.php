@@ -10,7 +10,6 @@ if (!$connection) {
 
 $id = $_GET['id'];
 
-
 $query = "DELETE from user where id ='$id'";
 $query = mysqli_query($connection, $query);
 
