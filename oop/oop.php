@@ -1,22 +1,63 @@
 <?php
-
 //class
 //property
 //method
 //object
 
-class Test //class
+class User //class
 {
-    public $test = "this is a property"; //property
+    public $test = "test property"; //property
 
-    public function tests($id, $second) //method
+    public function __construct($id, $s)
     {
-        echo "this is a method " . $id . ' ' . $second;
+        //echo $id + $s;
+    }
+
+    public function testfunction() //method
+    {
+        echo 'test function';
+    }
+
+    public function second($id, $s)
+    {
+        return $id + $s;
+    }
+
+    public function getProperty()
+    {
+        echo $this->test;
+    }
+
+    public function getMethod()
+    {
+        return $this->second(3, 4);
+    }
+
+    public function setProperty()
+    {
+        $this->test = "updated property";
     }
 }
 
-$obj = new Test(); //object
+$obj = new User(1, 2);
 
+// echo $obj->test;
+// echo "<br>";
+// $obj->testfunction();
+// echo "<br>";
+// $obj->second(44, 40);
+//$obj->getProperty();
+// echo $obj->getMethod();
+$obj->setProperty();
 echo $obj->test;
-echo "<br>";
-$obj->tests(1, 2);
+
+
+
+// function test()
+// {
+//     return "test";
+// }
+
+// $test = test();
+
+// echo $test;
