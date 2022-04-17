@@ -79,3 +79,19 @@
 //         'second' => 'second step',
 //     ]
 // ]];
+
+
+//spread operator
+
+// $array = [1, 2, 3];
+
+// var_dump(...$array);
+
+// $array = ['one' => 1, 'two' => 2];
+
+// extract($array);
+
+// $one = 1;
+// $two = 2;
+
+// echo $two;
